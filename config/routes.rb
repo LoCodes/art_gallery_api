@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :carts
-  resources :artworks
-  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users
+  resources :artworks
+  resources :carts 
+
+
 end
+
+
+
