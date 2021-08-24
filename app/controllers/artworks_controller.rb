@@ -40,6 +40,7 @@ class ArtworksController < ApplicationController
   end
 
   # PATCH/PUT /artworks/1 or /artworks/1.json
+  # if not admit dont update 
   def update
     respond_to do |format|
       if @artwork.update(artwork_params)
