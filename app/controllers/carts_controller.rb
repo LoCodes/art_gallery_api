@@ -4,10 +4,13 @@ class CartsController < ApplicationController
   # GET /carts or /carts.json
   def index
     @carts = Cart.all
+
+    redner json: @carts
   end
 
   # GET /carts/1 or /carts/1.json
   def show
+    redner json: @cart
   end
 
   # GET /carts/new

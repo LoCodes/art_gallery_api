@@ -5,19 +5,19 @@ class ArtworksController < ApplicationController
   def index
     @artworks = Artwork.all
 
-    # render json: @artworks
+    render json: @artworks
   end
 
   # GET /artworks/1 or /artworks/1.json
   def show
-    # render json: @artwork
+    render json: @artwork
   end
 
   # GET /artworks/new
   def new
     @artwork = Artwork.new
 
-    # render json: @artwork
+    render json: @artwork
   end
 
   # GET /artworks/1/edit
