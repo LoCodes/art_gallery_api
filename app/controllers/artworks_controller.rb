@@ -1,5 +1,7 @@
 class ArtworksController < ApplicationController
   before_action :set_artwork, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+
 
   # GET /artworks or /artworks.json
   def index
