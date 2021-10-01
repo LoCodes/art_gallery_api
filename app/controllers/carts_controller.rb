@@ -1,16 +1,18 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+
 
   # GET /carts or /carts.json
   def index
     @carts = Cart.all
 
-    redner json: @carts
+    render json: @carts
   end
 
   # GET /carts/1 or /carts/1.json
   def show
-    redner json: @cart
+    render json: @cart
   end
 
   # GET /carts/new
@@ -25,6 +27,7 @@ class CartsController < ApplicationController
   # POST /carts or /carts.json
   def create
     @cart = Cart.new(cart_params)
+    # byebug
 
     respond_to do |format|
       if @cart.save
@@ -67,6 +70,6 @@ class CartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cart_params
-      params.require(:cart).permit(:artwork_id, :user_id)
+      params.require(:cart).permit(:artwork_id, :user_id, artwork_attributes: [:title, :description, :img, :price])
     end
 end
